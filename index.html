@@ -1,0 +1,109 @@
+<!doctype html>
+<head>
+  <style>
+    body { margin: 0; }
+    .proud {
+      background: fixed no-repeat center 10%;
+      background-size: cover;
+    }
+    .proud > .text {
+      box-sizing: border-box;
+      width: 100vw;
+      height: 100vh;
+      padding-left: 10vw;
+      color: white;
+      font: 10vh/1 brandon-grotesque, sans-serif;
+      font-weight: 100;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .proud:first-child {
+      background-image: url(./proudcloud.jpg);
+    }
+    .proud:first-child > .text {
+      background: rgba(255,255,255,0.8);
+    }
+    .proud:first-child > .text > h1 {
+      font-weight: bold;
+      font-size: 100%;
+      color: rgb(245,108,35);
+    }
+  </style>
+<body>
+  <main>
+    <div class="proud">
+      <div class="text">
+        <h1>Proudcloud</h1>
+      </div>
+    </div>
+  </main>
+  <script src="https://use.typekit.net/aob7qwp.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+    var data = [
+      'Aldrine',
+      'Carl',
+      'Chris',
+      'Darwin',
+      'Dexter',
+      'Dodong',
+      'Ervin',
+      'Glenn',
+      'Jake',
+      'Janis',
+      'Jason',
+      'Jay',
+      'Jayah',
+      'Jed',
+      'Jekri',
+      'Jelvin',
+      'Jet',
+      'Jim_Ryan',
+      'Joco',
+      'Jp',
+      'Jun',
+      'Kat',
+      'Kyle',
+      'Lara',
+      'Lloyd',
+      'Lovely',
+      'Mac',
+      'Macoy',
+      'Mhejoy',
+      'Michael_John',
+      'Mitch',
+      'Nen',
+      'Nico',
+      'Nics',
+      'Omar',
+      'Oni',
+      'Patrick',
+      'Pete',
+      'Ram',
+      'Raphael',
+      'Rhea',
+      'Ria',
+      'Rick',
+      'Rico',
+      'Roan',
+      'Sam',
+      'Tony',
+      'Victor',
+      'Weto',
+      'Zy'
+    ]
+    var bgColor = d3.interpolateRgb('rgba(237,208,214,0.8)', 'rgba(215,230,232,0.8)')
+    var textColor = d3.interpolateRgb('rgb(245,108,35)', 'rgb(108,147,172)')
+    d3.select(document.querySelector('main')).selectAll('.proud')
+      .data(data)
+      .enter().append('div')
+        .classed('proud', true)
+        .style('background-image', function (d) { return 'url(./' + d + '.jpg)' })
+        .append('div')
+          .classed('text', true)
+          .style('background-color', function (_, i) { return bgColor(i / data.length) })
+          .style('color', function (_, i) { return textColor(i / data.length) })
+          .text(function (d) { return d.replace('_', ' ') })
+  </script>
