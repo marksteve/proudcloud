@@ -1,5 +1,6 @@
 <!doctype html>
 <head>
+  <meta name="viewport" content="width=device-width">
   <title>Proudcloud</title>
   <style>
     body { margin: 0; }
@@ -20,7 +21,7 @@
       align-items: center;
     }
     .proud:first-child {
-      background-image: url(./proudcloud.jpg);
+      background-image: url(./images/proudcloud.jpg);
     }
     .proud:first-child > .text {
       background: rgba(255,255,255,0.8);
@@ -101,7 +102,7 @@
       .data(data)
       .enter().append('div')
         .classed('proud', true)
-        .style('background-image', function (d) { return 'url(./' + d + '.jpg)' })
+        .style('background-image', function (d) { return 'url(./images/' + d + '.jpg)' })
         .append('div')
           .classed('text', true)
           .style('background-color', function (_, i) { return bgColor(i / data.length) })
